@@ -1,0 +1,24 @@
+﻿<Window x:Class="ThongPanelFrame.View.PropertyGrid"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:pt="http://propertytools.org/wpf"
+      xmlns:local="clr-namespace:ThongPanelFrame.View"
+      mc:Ignorable="d" 
+      d:Height="450" Width="800"
+      Title="PropertyGrid">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="790"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <pt:PropertyGrid Grid.Column="0" Margin="8" SelectedObject="{Binding SelectedValue}"/>
+        <Button Grid.Column="1" Grid.Row="2" Margin="8" Width="200" Height="80" HorizontalAlignment="Right" Content="保存"
+                Command="{Binding IsSave}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"/>
+    </Grid>
+</Window>
