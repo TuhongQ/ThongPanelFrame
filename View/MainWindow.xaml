@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:ThongPanelFrame.View"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        xmlns:local="clr-namespace:ThongPanelFrame.View"
         mc:Ignorable="d"
-        Title="测试平台WPF" Height="650" Width="1000" FontSize="20">
+        Title="WPF测试平台" Height="650" Width="1000" FontSize="15" Background="SlateGray">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -22,34 +22,12 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition />
+
         </Grid.ColumnDefinitions>
-        <Button Grid.Row="2" Grid.Column="0" Content="属性" Style="{DynamicResource ButtonDanger}" Background="{DynamicResource SecondaryRegionBrush}" Command="{Binding OpenProperty}"></Button>
-        <Button Grid.Row="0" Grid.Column="2" Content="开始" 
-                Command="{Binding IsStart}"
-                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
-                ></Button>
-        <TextBlock Grid.Row="0" Grid.Column="1" FontSize="20" Text="{Binding StrCMDM.strDescription}"></TextBlock>
-        <ListView x:Name="ListVV" ItemsSource="{Binding RecipeLists,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,10,0,10" Grid.Row="1" Grid.Column="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="NO." Width="120" DisplayMemberBinding="{Binding Path=num}" />
-                    <GridViewColumn Header="测试项" Width="200" DisplayMemberBinding="{Binding Path=testDescription}" />
-                    <GridViewColumn Header="结果" Width="500"  DisplayMemberBinding="{Binding Path=strResult}">
-                        <!-- 可以定义Cell的模板 -->
-                        <!--<GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <RadioButton GroupName="package" Checked="RadioButton_Checked"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>-->
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <!--<TextBlock Grid.Row="1" Grid.Column="1" FontSize="20" Text="{Binding StrCMDM.strResult}"></TextBlock>-->
-        <Button Grid.Row="2" Grid.Column="2" Content="停止"
-                Command="{Binding IsStop}"></Button>
+
+        <Grid Grid.Row="1">
+            <uc:HomePage x:Name="homepage" Visibility="Visible"/>
+        </Grid>
     </Grid>
 </Window>

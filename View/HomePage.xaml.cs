@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Threading;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,23 +11,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ThongPanelFrame.ViewModel;
-using GalaSoft.MvvmLight.Threading;
 
 namespace ThongPanelFrame.View
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// HomePage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class HomePage : UserControl
     {
-        public MainWindow()
+        public HomePage()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowVM();
-            //DispatcherHelper.Initialize();
+            this.DataContext = new HomePageVM();
+            DispatcherHelper.Initialize();
         }
-
     }
 }
