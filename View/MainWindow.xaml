@@ -6,7 +6,7 @@
         xmlns:uc="clr-namespace:ThongPanelFrame.View"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
-        Title="WPF测试平台" Height="650" Width="1000" FontSize="15" Background="SlateGray">
+        Title="" Height="650" Width="1000" FontSize="15" Background="SlateGray" WindowStyle="ToolWindow">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,15 +19,26 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
 
         </Grid.ColumnDefinitions>
-
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.ColumnSpan="2"
+                   Source="../Resources/Image/大标题.png"  Stretch="Fill"/>
+        </Grid>
         <Grid Grid.Row="1">
             <uc:HomePage x:Name="homepage" Visibility="Visible"/>
+            <!--<uc:PropertyGrid Margin="-50,0,-47,0"/>-->
+        </Grid>
+        <Grid Grid.Row="2">
+            <uc:Menubar/>
         </Grid>
     </Grid>
 </Window>

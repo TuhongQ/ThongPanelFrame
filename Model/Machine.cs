@@ -19,6 +19,7 @@ namespace ThongPanelFrame.Model
     {
         private readonly object _lockOperate = new object();
         public MachineStatus MachineStatus { get; private set; } = MachineStatus.None;
+        public double MachineProcess { get;  set; } = 0;
         public ProcAuto ProcAuto { get; private set; }
         private static readonly Lazy<Machine> _singer = new Lazy<Machine>(() => new Machine());
         public static Machine Instance
@@ -35,6 +36,10 @@ namespace ThongPanelFrame.Model
             {
                 lock (_lockOperate)
                 {
+                    //if (MachineStatus==MachineStatus.None)
+                    //{
+                    //    ProcAuto.Stop();
+                    //}
                     //执行方法
                     ProcAuto.Start();
                     MachineStatus = MachineStatus.AutoRun;
@@ -51,6 +56,7 @@ namespace ThongPanelFrame.Model
                 {
                     ProcAuto.Stop();
                     MachineStatus = MachineStatus.Ready;
+                    MachineProcess=0;
                 }
             });
             thread.Start();

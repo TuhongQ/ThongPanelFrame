@@ -32,11 +32,12 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label
-                Content="Wait..." FontSize="40" Height="75" Width="182" hc:BorderElement.CornerRadius="5"/>
+            <Label 
+                Content="{Binding MachineStatus}" FontSize="30" Height="75" Width="182" hc:BorderElement.CornerRadius="5"/>
             <Button Content="开始" Grid.Row="1" Width="155" Height="64" FontSize="30"
                 Command="{Binding IsStart}"
                 CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                IsEnabled="{Binding BtnStartEnabled}"
                 Style="{StaticResource ButtonPrimary}" hc:BorderElement.CornerRadius="15"
                 />
             <Button Content="暂停" Grid.Row="2" Margin="5" Width="155" Height="64" FontSize="30"
@@ -69,7 +70,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ProgressBar x:Name="HomeProgressBar" Grid.Row="1" Margin="10,2,2,12" Style="{DynamicResource ProgressBarSuccess}" Value="40" Height="25"/>
+        <ProgressBar x:Name="HomeProgressBar" Grid.Row="1" Margin="10,2,2,12" Style="{DynamicResource ProgressBarSuccess}" Value="{Binding ProgressBarValue}" Height="25"/>
         <!--<TextBlock Grid.Row="1" Grid.Column="1" FontSize="20" Text="{Binding StrCMDM.strResult}"></TextBlock>-->
     </Grid>
 </UserControl>

@@ -4,8 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <UseWPF>true</UseWPF>
+    <UseWPF>True</UseWPF>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Image\大标题.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="HandyControl" Version="3.4.0" />
@@ -19,6 +23,12 @@
     <Reference Include="PropertyTools.Wpf">
       <HintPath>dll\PropertyTools.Wpf.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Image\大标题.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

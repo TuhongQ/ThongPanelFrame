@@ -20,16 +20,17 @@ namespace ThongPanelFrame.Model.Process
         public void Process(object parame)
         {
             XThread thread = parame as XThread;
+            int iNum = 1;
             while (true)
             {
-                if (thread==null|| thread.BlockWaitEvent()) break;
-                switch (1)
+                if (thread==null|| thread.BlockWaitEvent()) break;              
+                switch (iNum)
                 {
                     case 1:
                         procStage.Load();
+                        iNum= 2;
                         break;
                     case 2:
-
                         break;
                     default:
                         throw new Exception($"未定义类型");

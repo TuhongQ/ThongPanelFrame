@@ -2,6 +2,9 @@
 using ThongPanelFrame.Model.Recipe;
 using System.Collections.Generic;
 using System.Threading;
+using System.Windows.Documents;
+using System.Text.RegularExpressions;
+using System;
 
 namespace ThongPanelFrame.Model.Process
 {
@@ -9,7 +12,7 @@ namespace ThongPanelFrame.Model.Process
     {
         public ProcStage()
         {
-           
+
         }
 
         public void Load()
@@ -19,10 +22,15 @@ namespace ThongPanelFrame.Model.Process
             {
                 if (!string.IsNullOrEmpty(recipeParam.ADBParams[i].ADBSTR))
                 {
+                    double dbTemp = ((i + 1) * 100) / (recipeParam.ADBParams.Count);
+                    for (double j = Machine.Instance.MachineProcess; j < dbTemp; j++)
+                    {
+                        Machine.Instance.MachineProcess++;
+                        Thread.Sleep(30);
+                    }
                     Global.AllResult[i] = CMDManager.Instance.ExecuteAdbCommand(recipeParam.ADBParams[i].ADBSTR);
-                    Global.GlADBDescription = recipeParam.ADBParams[i].Description;
+                    Thread.Sleep(100);
                 }
-                Thread.Sleep(1000);
             }
         }
     }
