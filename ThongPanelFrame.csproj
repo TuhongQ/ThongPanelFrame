@@ -31,4 +31,8 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Model\ProductLog\" />
+  </ItemGroup>
+
 </Project>

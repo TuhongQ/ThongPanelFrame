@@ -31,7 +31,7 @@ namespace ThongPanelFrame.ViewModel
         }
         public void Save(object parameter)
         {
-            Button btnSave =  parameter as Button;
+            Button? btnSave =  parameter as Button;
             if (btnSave != null) { btnSave.Background = Brushes.Red; }
             RecipeManager.Instance.Save(SelectedValue.Name.ToString());
             Global.bUpdataList = true;
