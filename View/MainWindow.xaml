@@ -39,6 +39,10 @@
             <StackPanel x:Name="propertygrid" Visibility="{Binding IspropertyVis}"  hc:BorderElement.CornerRadius="150" Margin="10">
                 <uc:PropertyGrid />
             </StackPanel>
+            <StackPanel x:Name="productlog" Visibility="{Binding IsproductlogVis}"  hc:BorderElement.CornerRadius="150" Margin="10">
+                <uc:ProductLogView />
+            </StackPanel>
+
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -89,7 +93,10 @@
                       hc:BorderElement.CornerRadius="8"
                       FontSize="18"
                       FontWeight="Bold"
-                      Background="AliceBlue" Height="68" Width="108" VerticalAlignment="Top" />
+                      Background="AliceBlue" Height="68" Width="108" VerticalAlignment="Top" 
+                      Command="{Binding ChangePage}"
+                      CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" />
+
             <Button Grid.Column="4"
                       Content="报警"
                       Name="AlarmView"

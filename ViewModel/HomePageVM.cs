@@ -127,6 +127,7 @@ namespace ThongPanelFrame.ViewModel
         private async void ProcessMonitor(object parame)
         {
             XThread? thread = parame as XThread;
+
             while (true)
             {
                 if (thread == null || thread.BlockWaitEvent()) { break; }

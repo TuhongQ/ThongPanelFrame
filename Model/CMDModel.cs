@@ -13,7 +13,5 @@ namespace ThongPanelFrame.Model
         public string? strResult { get; set; }
         public string? strADB { get; set; }
         public string? strError { get; set;}
-
-        //hello
     }
 }
